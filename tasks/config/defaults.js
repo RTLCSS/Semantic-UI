@@ -14,7 +14,7 @@ module.exports = {
   permission : 744,
 
   // whether to generate rtl files
-  rtl        : false,
+  rtl        : true,
 
   // file paths
   files: {
