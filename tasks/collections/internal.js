@@ -134,33 +134,6 @@ module.exports = function(gulp) {
           .pipe(print(log.created))
       ;
     });
-
-    gulp.task('package uncompressed docs css', function() {
-      return gulp.src(output.uncompressed + '/**/' + globs.components + globs.ignored + '.css')
-        .pipe(dedupe())
-        .pipe(plumber())
-        .pipe(replace(assets.uncompressed, assets.packaged))
-        .pipe(concatCSS(filenames.concatenatedCSS, settings.concatCSS))
-          .pipe(gulpif(config.hasPermission, chmod(config.permission)))
-          .pipe(gulp.dest(output.packaged))
-          .pipe(print(log.created))
-      ;
-    });
-
-    gulp.task('package compressed docs css', function() {
-      return gulp.src(output.uncompressed + '/**/' + globs.components + globs.ignored + '.css')
-        .pipe(dedupe())
-        .pipe(plumber())
-        .pipe(replace(assets.uncompressed, assets.packaged))
-        .pipe(concatCSS(filenames.concatenatedMinifiedCSS, settings.concatCSS))
-          .pipe(minifyCSS(settings.concatMinify))
-          .pipe(header(banner, settings.header))
-          .pipe(gulpif(config.hasPermission, chmod(config.permission)))
-          .pipe(gulp.dest(output.packaged))
-          .pipe(print(log.created))
-      ;
-    });
-
   }
 
   /*--------------
@@ -224,4 +197,36 @@ module.exports = function(gulp) {
     ;
   });
 
+  /*--------------
+        RTL
+  ---------------*/
+
+  if(config.rtl) {
+
+    gulp.task('package uncompressed docs rtl css', function() {
+      return gulp.src(docsOutput.uncompressed + '/**/' + globs.components + globs.ignoredRTL + '.css')
+        .pipe(dedupe())
+        .pipe(plumber())
+        .pipe(replace(assets.uncompressed, assets.packaged))
+        .pipe(concatCSS(filenames.concatenatedRTLCSS, settings.concatCSS))
+          .pipe(gulpif(config.hasPermission, chmod(config.permission)))
+          .pipe(gulp.dest(docsOutput.packaged))
+          .pipe(print(log.created))
+      ;
+    });
+
+    gulp.task('package compressed docs rtl css', function() {
+      return gulp.src(docsOutput.uncompressed + '/**/' + globs.components + globs.ignoredRTL + '.css')
+        .pipe(dedupe())
+        .pipe(plumber())
+        .pipe(replace(assets.uncompressed, assets.packaged))
+        .pipe(concatCSS(filenames.concatenatedMinifiedRTLCSS, settings.concatCSS))
+          .pipe(minifyCSS(settings.concatMinify))
+          .pipe(header(banner, settings.header))
+          .pipe(gulpif(config.hasPermission, chmod(config.permission)))
+          .pipe(gulp.dest(docsOutput.packaged))
+          .pipe(print(log.created))
+      ;
+    });
+  }
 };

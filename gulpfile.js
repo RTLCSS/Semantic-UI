@@ -31,7 +31,8 @@ var
 
   // rtl
   buildRTL     = require('./tasks/rtl/build'),
-  watchRTL     = require('./tasks/rtl/watch')
+  watchRTL     = require('./tasks/rtl/watch'),
+  buildDocsRTL = require('./tasks/rtl/docs')
 ;
 
 
@@ -76,6 +77,7 @@ gulp.task('build-docs', 'Build all files and add to SUI Docs', buildDocs);
 if(config.rtl) {
   gulp.task('watch-rtl', 'Watch files as RTL', watchRTL);
   gulp.task('build-rtl', 'Build all files as RTL', buildRTL);
+  gulp.task('build-docs-rtl', 'Build docs files as RTL', buildDocsRTL);
 }
 
 /* Admin Tasks */
