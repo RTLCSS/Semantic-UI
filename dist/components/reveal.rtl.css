@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.6 - Reveal
+ * # Semantic UI 2.4.1 - Reveal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -55,6 +55,7 @@
 .ui.slide.reveal > .content {
   display: block;
   width: 100%;
+  white-space: normal;
   float: right;
   margin: 0em;
   -webkit-transition: -webkit-transform 0.5s ease 0.1s;
@@ -82,7 +83,7 @@
   -webkit-transform: translateX(0%) !important;
           transform: translateX(0%) !important;
 }
-.ui.slide.left.reveal > .visible.content {
+.ui.slide.right.reveal > .visible.content {
   -webkit-transform: translateX(0%) !important;
           transform: translateX(0%) !important;
 }
@@ -95,8 +96,8 @@
   -webkit-transform: translateX(-100%) !important;
           transform: translateX(-100%) !important;
 }
-.ui.slide.left.active.reveal > .hidden.content,
-.ui.slide.left.reveal:hover > .hidden.content {
+.ui.slide.right.active.reveal > .hidden.content,
+.ui.slide.right.reveal:hover > .hidden.content {
   -webkit-transform: translateX(0%) !important;
           transform: translateX(0%) !important;
 }
@@ -153,6 +154,7 @@
 .ui.move.reveal > .content {
   display: block;
   float: right;
+  white-space: normal;
   margin: 0em;
   -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1) 0.1s;
   transition: -webkit-transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1) 0.1s;
@@ -238,6 +240,15 @@
 }
 .ui.disabled.reveal:hover > .hidden.hidden.content {
   display: none !important;
+}
+
+
+/*******************************
+           Coupling
+*******************************/
+
+.ui.reveal > .ui.ribbon.label {
+  z-index: 5;
 }
 
 

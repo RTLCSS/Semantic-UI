@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.6 - Rail
+ * # Semantic UI 2.4.1 - Rail
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -104,8 +104,8 @@
     Attached
 ---------------*/
 
-.ui.attached.right.rail,
-.ui.attached.left.rail {
+.ui.attached.left.rail,
+.ui.attached.right.rail {
   padding: 0em;
   margin: 0em;
 }
